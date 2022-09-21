@@ -1,0 +1,49 @@
+{
+  "name": "reading-rabbit",
+  "version": "0.1.0",
+  "description": "Search webpage content for specific text via the command line.",
+  "main": "./dist/index.js",
+  "scripts": {
+    "start:dev": "watch 'npm run build' ./src",
+    "build": "npm run clean && npm run ts && npm run permissions",
+    "clean": "rm -r -f ./dist",
+    "ts": "node_modules/.bin/tsc",
+    "permissions": "chmod +x ./dist/index.js",
+    "lint": "eslint --ext .ts ./src",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://derekrushforth@github.com/derekrushforth/reading-rabbit.git"
+  },
+  "author": "Derek Rushforth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/derekrushforth/reading-rabbit/issues"
+  },
+  "homepage": "https://github.com/derekrushforth/reading-rabbit#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "crawler": "^1.3.0",
+    "inquirer": "^8.2.4",
+    "ora": "^5.4.1",
+    "sitemap-to-array": "^6.0.0",
+    "watch": "^1.0.2",
+    "yargonaut": "^1.1.4",
+    "yargs": "^17.5.1"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^8.2.3",
+    "@types/yargs": "^17.0.12",
+    "eslint": "^8.23.1",
+    "pre-commit": "^1.2.2",
+    "ts-node": "^8.10.2",
+    "typescript": "^4.8.3"
+  },
+  "bin": {
+    "readingrabbit": "./dist/index.js"
+  },
+  "precommit": [
+    "build"
+  ]
+}
