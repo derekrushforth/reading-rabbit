@@ -14,7 +14,6 @@ reading-rabbit https://website.com/sitemap.xml term
 - Search multiple terms in single command
 - Disable case sensitivity on terms
 - Control rate limiting and max connections
-- Improve command line feedback when searching
 
 ## License
 
