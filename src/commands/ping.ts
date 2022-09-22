@@ -12,13 +12,7 @@ const spinnerOpts:any = {
 
 export const command = 'ping <sitemap URL>'
 export const desc = 'Ping a list of URLs from a sitemap'
-export const builder = {
-  'case-sensitive': {
-    type: 'boolean',
-    describe: '',
-    alias: 'c'
-  }
-}
+export const builder = {}
 export const handler = (args: any): Promise<void> => exec(args)
 
 /**
@@ -40,14 +34,18 @@ const exec = (args: any):any => {
 
 
 const ping = (urls: any) => {
-  let spinner = ora({ text:'Hoppin’ through the pages!',...spinnerOpts }).start()
+  let progress = 0
+  let spinner = ora({ text:'Hoppin’ through the pages!', ...spinnerOpts }).start()
 
   const c = new Crawler({
     rateLimit: 50,
     maxConnections: 10,
     jQuery: false,
     // This will be called for each crawled page
-    callback: (error:any, res:any, done:any) => {
+    callback: function(error:any, res:any, done:any) {
+      progress++
+      let progressText = `${progress}/${urls.length}`
+
       if (error) {
         console.log(error)
       } else {
@@ -56,7 +54,7 @@ const ping = (urls: any) => {
         const status = res.statusCode === 200 ? chalk.bgGreen(res.statusCode) : chalk.bgRed(res.statusCode)
         console.log(`${status} ${res.options.uri}`)
 
-        spinner = ora({ text:'Hoppin’ through the pages!',...spinnerOpts }).start()
+        spinner = ora({ text:`${progressText} | Hoppin’ through the pages!`, ...spinnerOpts }).start()
       }
 
       done()
@@ -67,7 +65,7 @@ const ping = (urls: any) => {
 
   c.on('drain', () => {
     spinner.stop()
-    console.log(chalk.green(`\n✅ All complete!`))
+    console.log(chalk.green(`\n✅All complete!`))
     process.exit(1)
   })
 }
