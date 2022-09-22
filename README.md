@@ -18,4 +18,4 @@ reading-rabbit https://website.com/sitemap.xml term
 
 ## License
 
-Postmark CLI library is licensed under the **MIT** license. Please refer to the [LICENSE](https://github.com/activecampaign/postmark-cli/blob/master/LICENSE.md) for more information.
+This library is licensed under the **MIT** license. Please refer to the [LICENSE](https://github.com/derekrushforth/reading-rabbit/blob/main/LICENSE) for more information.

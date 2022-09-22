@@ -5,7 +5,7 @@ const smta = require('sitemap-to-array')
 const Crawler = require('crawler')
 
 export const command = 'search <sitemap URL> <term> [options]'
-export const desc = 'URL of the website’s sitemap.xml. Normally found at the root of a webpage.'
+export const desc = 'Searches all pages in a sitemap for specific text.'
 export const builder = {
   'case-sensitive': {
     type: 'boolean',
