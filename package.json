@@ -1,6 +1,6 @@
 {
   "name": "reading-rabbit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Search webpage content for specific text via the command line.",
   "main": "./dist/index.js",
   "scripts": {
