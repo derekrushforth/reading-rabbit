@@ -14,6 +14,8 @@ reading-rabbit https://website.com/sitemap.xml term
 - Search multiple terms in single command
 - Disable case sensitivity on terms
 - Control rate limiting and max connections
+- Basic auth support
+- Support for different types of XML sitemaps e.g. https://www.activecampaign.com/sitemap_index.xml
 
 ## License
 
